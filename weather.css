@@ -1,365 +1,323 @@
 body {
-    margin: 0px;
-    padding: 0px;
-    background-image: url(images/default.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 50em;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: white;
-    text-shadow: 2px 2px 1px black;
+  margin: 0px;
+  padding: 0px;
+  background: url("images/default.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 50em;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: white;
+  text-shadow: 2px 2px 1px black;
 }
 
-#clockDisplay{
-    display: flex;
-    float: right;
-    font-size: 20px;
-    padding-right: 20px;
-    margin-top: -20px;
+#clockDisplay {
+  display: flex;
+  float: right;
+  font-size: 20px;
+  padding-right: 20px;
+  margin-top: -20px;
 }
 
 #searcharea {
-    text-align: center;
-    margin-top: 100px;
+  text-align: center;
+  margin-top: 100px;
 }
 
 #searcharea input {
-  	width:  200px; 
-  	padding: 5px;
+  width: 200px;
+  padding: 5px;
 }
 
 .btn {
-	background-color: white;
-	cursor: pointer;
-	padding: 5px;
-	width: 80px;
+  background-color: white;
+  cursor: pointer;
+  padding: 5px;
+  width: 80px;
 }
 
 .btn:hover {
-    background-color: blue;
-    color: white;
+  background-color: blue;
+  color: white;
 }
 
-#container {
-    border-radius: 10px;
-    box-sizing: border-box;
-    padding: 50px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 400px;
-    background-color: rgba(0, 0, 0, .5);
-    display: none;
-    transform: translate(-50%, -50%);
+.container {
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  transform: translate(-50%, -50%);
 }
 
 #info {
-    display: flexbox;
-    flex-wrap: wrap;
+  display: flexbox;
+  flex-wrap: wrap;
 }
 
-.search, .btn {
-    box-shadow: 2px 2px 1px black;
-    border-radius: 5px;
-    border-style: none;
-    font-size: 15px;
+.search,
+.btn {
+  box-shadow: 2px 2px 1px black;
+  border-radius: 5px;
+  border-style: none;
+  font-size: 15px;
 }
 
-
-#container h1 {
-    font-size: 40px;
-    margin-top: 0px;
+.container h1 {
+  font-size: 40px;
+  margin-top: 0px;
 }
 
 #temperature {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 #weatherinfo {
-    font-size: 25px;
-    vertical-align: 50%;
+  font-size: 25px;
+  vertical-align: 50%;
 }
-
 
 #weatherbox div {
-    display: inline-block;
-    padding-right: 15px;
+  display: inline-block;
+  padding-right: 15px;
 }
 
-.name{
-    font-family: fantasy;
-	padding-left: 5px;
+.name {
+  font-family: fantasy;
+  padding-left: 5px;
 }
 
 #humidity {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
-#footer{
-    position: absolute;
-    top: 790px;
-    height: 140px;
-    width: 100%;
-	display: flex;
+#footer {
+  position: absolute;
+  top: 790px;
+  height: 140px;
+  width: 100%;
+  display: flex;
 }
 
 .designer {
-	display: flex;
-	position: absolute;
-	left: 5px;
-	top: 80px;
-	width: 300px;
+  display: flex;
+  position: absolute;
+  left: 5px;
+  top: 80px;
+  width: 300px;
 }
 
 .socialicons {
-	width: 300px;
-	position: relative;
-	left: 45%;
-	display: flex;
+  width: 300px;
+  position: relative;
+  left: 45%;
+  display: flex;
 }
 
-
-
-ul{
-    padding-top: 40px;
-    display: flex;
-    width: 200px;
-    text-align: center;
+ul {
+  padding-top: 40px;
+  display: flex;
+  width: 200px;
+  text-align: center;
 }
 
 ul li {
-    list-style: none;
-    padding: 0px 20px;
-    font-size: 30px;
+  list-style: none;
+  padding: 0px 20px;
+  font-size: 30px;
 }
 
 ul li a {
-    color: white;
+  color: white;
 }
 
 ul li .fab:hover,
 .far:hover {
-    animation: animate 2s infinite;
+  animation: animate 2s infinite;
 }
 
 @keyframes animate {
-    0% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    40% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-30px) rotate(180deg);
-    }
-    100% {
-        transform: translateY(0px) rotate(360deg);
-    }
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  40% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+  }
 }
 
 /*responsive*/
 
-@media screen and (max-width: 360px){
-    .btn {
-        display: block;
-    }
+@media screen and (max-width: 360px) {
+  .btn {
+    display: block;
+  }
 
-    #searcharea .btn{
-        margin: 15px 0px 0px 120px;
-    }
+  #searcharea .btn {
+    margin: 15px 0px 0px 120px;
+  }
 
-    #container {
-        display: none;
-        width: 270px;
-        margin-top: 50px;
-    }
+  .container {
+    display: none;
+    width: 270px;
+    margin-top: 50px;
+  }
 
-    #container h1 {
-        font-size: 27px;
-        text-align: center;
-    }
+  .container h1 {
+    font-size: 27px;
+    text-align: center;
+  }
 
-    #temperature {
-        margin-left: 80px;
-    }
+  #temperature {
+    margin-left: 80px;
+  }
 
-    #weatherinfo {
-        margin:10px 0px 0px 60px;
-        width: 200px;
-    }
+  #weatherinfo {
+    margin: 10px 0px 0px 60px;
+    width: 200px;
+  }
 
-    #weathericon {
-        height: 80px;
-        margin-left: 60px;
-    } 
-	
-	
-	ul {
-		position: relative;
-		left: 10%;
-	}
-	
-	ul li .fab,
-.far {
+  #weathericon {
+    height: 80px;
+    margin-left: 60px;
+  }
+
+  ul {
+    position: relative;
+    left: 10%;
+  }
+
+  ul li .fab,
+  .far {
     animation: animate 2s infinite alternate;
+  }
 }
-}
-
-
 
 @media screen and (max-width: 375px) {
-    #container {
-        margin: 0px;
-        width: 350px;
-		position: absolute;
-		top: 200px;
-    }
+  .container {
+    margin: 0px;
+    width: 350px;
+    position: absolute;
+    top: 200px;
+  }
 
-    #container h1 {
-        font-size: 27px;
-    }
-	
-	
-	#footer {
-		display: block;
-	}
-	
-	.socialicons {
-		width: 200px;
-		position: relative;
-		left: 30px;
-	}
-	
-	ul {
-		padding: 0px 0px 0px 50px;
-	}
-	
-	ul li .fab,
-.far {
+  .container h1 {
+    font-size: 27px;
+  }
+
+  #footer {
+    display: block;
+  }
+
+  .socialicons {
+    width: 200px;
+    position: relative;
+    left: 30px;
+  }
+
+  ul {
+    padding: 0px 0px 0px 50px;
+  }
+
+  ul li .fab,
+  .far {
     animation: animate 2s infinite alternate;
-}
-	
-	.designer {
-		padding-top: 10px;
-	}
-}
+  }
 
+  .designer {
+    padding-top: 10px;
+  }
+}
 
 @media screen and (max-width: 403px) {
-    ul li .fab,
-.far {
+  ul li .fab,
+  .far {
     animation: animate 2s infinite alternate;
-}
+  }
 
-@keyframes animate {
+  @keyframes animate {
     0% {
-        transform: translateY(0px) rotate(0deg);
+      transform: translateY(0px) rotate(0deg);
     }
     40% {
-        transform: translateY(0px) rotate(0deg);
+      transform: translateY(0px) rotate(0deg);
     }
     50% {
-        transform: translateY(-30px) rotate(180deg);
+      transform: translateY(-30px) rotate(180deg);
     }
     100% {
-        transform: translateY(0px) rotate(360deg);
+      transform: translateY(0px) rotate(360deg);
     }
+  }
 }
-}
-
-
 
 @media screen and (max-width: 740px) {
-    
-    #container {
-        margin-top: 200px;
-    }
-	
-	#footer {
-		height: 100px;
-		position: absolute;
-		top: 740px;
-	}
-	
-	.socialicons {
-		height: 80px;
-		position: relative;
-		top: 20px;
-	}
-	
-	
-	ul li .fab,
-.far {
+  .container {
+    margin-top: 200px;
+  }
+
+  #footer {
+    height: 100px;
+    position: absolute;
+    top: 740px;
+  }
+
+  .socialicons {
+    height: 80px;
+    position: relative;
+    top: 20px;
+  }
+
+  ul li .fab,
+  .far {
     animation: animate 2s infinite alternate;
-	}
-	}
-
-
+  }
+}
 
 @media screen and (max-width: 812px) {
-    #clockDisplay {
-        font-size: 15px;
-        margin-top: -70px;
-    }
+  #clockDisplay {
+    font-size: 15px;
+    margin-top: -70px;
+  }
 
-    #container {
-        margin-top: 200px;
-    }
-	
-	#footer {
-		position: absolute;
-		top: 760px;
-		height: 100px;
-	}
-	
-	ul li .fab,
-.far {
+  .container {
+    margin-top: 200px;
+  }
+
+  #footer {
+    position: absolute;
+    top: 760px;
+    height: 100px;
+  }
+
+  ul li .fab,
+  .far {
     animation: animate 2s infinite alternate;
-	}
-	}
+  }
+}
 
+@media screen and (max-width: 1024px) {
+  #footer {
+    position: absolute;
+    top: 760px;
+  }
 
+  .socialicons {
+    height: 100px;
+  }
 
-@media screen and (max-width: 1024px){
-	#footer {
-		position: absolute;
-		top: 760px;
-	}
-	
-	.socialicons {
-		height: 100px;
-	}
-	
-	ul li .fab,
-.far {
+  ul li .fab,
+  .far {
     animation: animate 2s infinite alternate;
-	}
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }
+}

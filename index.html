@@ -1,42 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>WeatherApp</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="weather.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-</head>
-<body onload="renderTime();">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="weather.css" />
+  </head>
+  <body onload="renderTime();">
     <div id="clockDisplay"></div>
     <div id="searcharea">
-        <input type="text" placeholder="City, Country" class="search" id="searchinput">
-        <button id="btn" class="btn">Search</button>
+      <input
+        type="text"
+        placeholder="City, Country"
+        class="search"
+        id="searchinput"
+      />
+      <button id="btn" class="btn">Search</button>
     </div>
-    <div id="container" class="container">
-        <div id="info">
-            <h1 id="city"></h1>
-            <div id="weatherbox">
-                <div id="temperature"></div>
-                <div id="weatherinfo"></div>
-                <div><img id="weathericon"></div>
-            </div>
-            <hr>
-            <div id="windSpeed"></div>
-            <div id="humidity"></div>
+    <div class="container">
+      <div id="info">
+        <h1 id="city"></h1>
+        <div id="weatherbox">
+          <div id="temperature"></div>
+          <div id="weatherinfo"></div>
+          <div><img id="weathericon" /></div>
         </div>
+        <hr />
+        <div id="windSpeed"></div>
+        <div id="humidity"></div>
+      </div>
     </div>
     <footer id="footer">
-        <div class="socialicons">
-        	<ul>
-            <li><a href="https://www.facebook.com/nick.triandafillidis"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://www.instagram.com/nick_triantafillidis/?hl=el"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/nick-triantafillidis-73526516b/"><i class="fab fa-linkedin-in"></i></a></li>
+      <div class="socialicons">
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/nick.triandafillidis"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/nick_triantafillidis/?hl=el"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/nick-triantafillidis-73526516b/"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </li>
         </ul>
-        </div>
-        <div class="designer">Designed by <span class="name"> Nick Triantafillidis</span></div>
+      </div>
+      <div class="designer">
+        Designed by <span class="name"> Nick Triantafillidis</span>
+      </div>
     </footer>
     <script src="weather.js"></script>
-</body>
+  </body>
 </html>
