@@ -12,55 +12,45 @@
     />
     <link rel="stylesheet" type="text/css" media="screen" href="weather.css" />
   </head>
-  <body onload="renderTime();">
-    <div id="clockDisplay"></div>
-    <div id="searcharea">
-      <input
-        type="text"
-        placeholder="City, Country"
-        class="search"
-        id="searchinput"
-      />
-      <button id="btn" class="btn">Search</button>
-    </div>
-    <div class="container">
-      <div id="info">
-        <h1 id="city"></h1>
-        <div id="weatherbox">
-          <div id="temperature"></div>
-          <div id="weatherinfo"></div>
-          <div><img id="weathericon" /></div>
+  <body>
+    <main>
+      <header>
+        <div id="clockDisplay"></div>
+      </header>
+      <div id="searcharea">
+        <input
+          type="text"
+          placeholder="City, Country"
+          class="search"
+          id="searchinput"
+        />
+        <button id="btn" class="btn">Search</button>
+      </div>
+      <div class="weekly">
+        <ul></ul>
+      </div>
+      <div class="container">
+        <div id="info">
+          <h1 id="city"></h1>
+          <div id="weatherbox">
+            <div id="temperature"></div>
+            <div id="weatherinfo"></div>
+            <div><img id="weathericon" /></div>
+          </div>
+          <hr />
+          <div id="windSpeed"></div>
+          <div id="humidity"></div>
         </div>
-        <hr />
-        <div id="windSpeed"></div>
-        <div id="humidity"></div>
       </div>
-    </div>
-    <footer id="footer">
-      <div class="socialicons">
-        <ul>
-          <li>
-            <a href="https://www.facebook.com/nick.triandafillidis"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/nick_triantafillidis/?hl=el"
-              ><i class="fab fa-instagram"></i
-            ></a>
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/nick-triantafillidis-73526516b/"
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
-          </li>
-        </ul>
-      </div>
-      <div class="designer">
-        Designed by <span class="name"> Nick Triantafillidis</span>
-      </div>
-    </footer>
+      <footer id="footer">
+        <p class="designer">
+          Designed by
+          <a href="https://www.nitria.tk/" class="name">
+            Nick Triantafillidis</a
+          >
+        </p>
+      </footer>
+    </main>
     <script src="weather.js"></script>
   </body>
 </html>

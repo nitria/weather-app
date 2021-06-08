@@ -1,4 +1,5 @@
-/* time & date */
+var appId = "78419ddf4afd14ddbb439371f8aad916";
+var units = "metric";
 
 function renderTime() {
   /*DATE*/
@@ -19,6 +20,7 @@ function renderTime() {
     "Friday",
     "Saturday"
   );
+
   var montharray = new Array(
     "January",
     "February",
@@ -75,33 +77,17 @@ function renderTime() {
     sec;
   setTimeout(renderTime, 1000);
 }
-renderTime();
 
-/* weather info */
+//Get weather info//
 
-var appId = "78419ddf4afd14ddbb439371f8aad916";
-var units = "metric";
-var searchMethod = "q";
+var weatherinfo = document.getElementById("weatherinfo");
+var temperature = document.getElementById("temperature");
+var city = document.getElementById("city");
+var weathericon = document.getElementById("weathericon");
+var windSpeed = document.getElementById("windSpeed");
+var humidity = document.getElementById("humidity");
 
-function getSearchMethod(searchTerm) {
-  if (searchTerm.length == 5 && Number.parseInt(searchTerm) + "" == searchTerm)
-    searchMethod = "zip";
-  else searchMethod = "q";
-}
-
-function searchWeather(searchTerm) {
-  getSearchMethod(searchTerm);
-  fetch(
-    `http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`
-  )
-    .then((result) => {
-      return result.json();
-    })
-    .then((result) => {
-      init(result);
-    });
-}
-
+//Get background image according to weather//
 function init(resultFromServer) {
   switch (resultFromServer.weather[0].main) {
     case "Clear":
@@ -124,13 +110,6 @@ function init(resultFromServer) {
       break;
   }
 
-  var weatherinfo = document.getElementById("weatherinfo");
-  var temperature = document.getElementById("temperature");
-  var city = document.getElementById("city");
-  var weathericon = document.getElementById("weathericon");
-  var windSpeed = document.getElementById("windSpeed");
-  var humidity = document.getElementById("humidity");
-
   weathericon.src =
     "http://openweathermap.org/img/w/" +
     resultFromServer.weather[0].icon +
@@ -148,9 +127,105 @@ function init(resultFromServer) {
   humidity.innerHTML = "Humidity: " + resultFromServer.main.humidity + "%";
 }
 
-document.getElementById("btn").addEventListener("click", () => {
-  "use strict";
-  document.querySelector(".container").style.display = "block";
-  var searchTerm = document.getElementById("searchinput").value;
-  if (searchTerm) searchWeather(searchTerm);
+window.addEventListener("load", () => {
+  renderTime();
+
+  function getSearchMethod(searchTerm) {
+    if (
+      searchTerm.length == 5 &&
+      Number.parseInt(searchTerm) + "" == searchTerm
+    )
+      searchMethod = "zip";
+    else searchMethod = "q";
+  }
+
+  function searchWeather(searchTerm) {
+    getSearchMethod(searchTerm);
+    fetch(
+      `http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`
+    )
+      .then((result) => {
+        return result.json();
+      })
+      .then((result) => {
+        init(result);
+      });
+  }
+
+  document.getElementById("btn").addEventListener("click", () => {
+    "use strict";
+    var searchTerm = document.getElementById("searchinput").value;
+    if (searchTerm) searchWeather(searchTerm);
+  });
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      var long = position.coords.longitude;
+      var lat = position.coords.latitude;
+      var url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=${appId}&units=${units}`;
+
+      fetch(url)
+        .then((result) => {
+          return result.json();
+        })
+        .then((result) => {
+          init(result);
+        });
+      weeklyWeather(long, lat);
+    });
+  }
 });
+
+function weeklyWeather(lat, long) {
+  var exclude = ["current", "minutely", "hourly", "alerts"];
+  var weather = ` http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=${exclude}&APPID=${appId}&units=${units}`;
+
+  fetch(weather)
+    .then((result) => {
+      return result.json();
+    })
+    .then((result) => {
+      showDailyWeather(result);
+    });
+}
+
+function showDailyWeather(resultFromServer) {
+  var daily = resultFromServer.daily;
+  daily.shift();
+  daily.map((day) => {
+    var dt = day.dt;
+    var date = new Date(dt * 1000);
+    var dayNum = date.getDate();
+    var dayOfWeek = date.getDay();
+    var month = date.getMonth() + 1;
+    var dayarray = new Array(
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    );
+    var thisday = dayNum + "/" + month + " " + dayarray[dayOfWeek];
+
+    var getWeather = day.weather[0].main;
+    var getIcon =
+      "http://openweathermap.org/img/w/" + day.weather[0].icon + ".png";
+    var getTemp = Math.floor(day.temp.day) + "&#176" + "C";
+    var ul = document.querySelector("ul");
+    var list = document.createElement("li");
+    list = `<li>
+    <div>
+    <h1>${thisday}</h1>
+    <h2>${getTemp}</h2>
+    </div>
+    <div>
+    <img src="${getIcon}"/>
+    <h3>${getWeather}</h3>
+    </div>
+    </li>`;
+
+    ul.innerHTML += list;
+  });
+}
