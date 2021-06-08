@@ -221,7 +221,7 @@ function showDailyWeather(resultFromServer) {
     <h2>${getTemp}</h2>
     </div>
     <div>
-    <img src="${getIcon}"/>
+    <img src="${getIcon}" alt="weather icon"/>
     <h3>${getWeather}</h3>
     </div>
     </li>`;
