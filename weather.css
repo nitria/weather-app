@@ -83,7 +83,6 @@ header {
   justify-content: space-between;
   list-style: none;
   background-color: rgba(0, 0, 0, 0.5);
-  /* border-bottom: 1px solid #fff; */
 }
 
 .weekly li div {
@@ -161,6 +160,7 @@ header {
 }
 
 #footer {
+  grid-area: footer;
   position: absolute;
   bottom: 10px;
   left: 10px;
