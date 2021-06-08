@@ -111,7 +111,7 @@ function init(resultFromServer) {
   }
 
   weathericon.src =
-    "http://openweathermap.org/img/w/" +
+    "https://openweathermap.org/img/w/" +
     resultFromServer.weather[0].icon +
     ".png";
 
@@ -142,7 +142,7 @@ window.addEventListener("load", () => {
   function searchWeather(searchTerm) {
     getSearchMethod(searchTerm);
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`
+      `https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`
     )
       .then((result) => {
         return result.json();
@@ -162,7 +162,7 @@ window.addEventListener("load", () => {
     navigator.geolocation.getCurrentPosition((position) => {
       var long = position.coords.longitude;
       var lat = position.coords.latitude;
-      var url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=${appId}&units=${units}`;
+      var url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=${appId}&units=${units}`;
 
       fetch(url)
         .then((result) => {
@@ -178,7 +178,7 @@ window.addEventListener("load", () => {
 
 function weeklyWeather(lat, long) {
   var exclude = ["current", "minutely", "hourly", "alerts"];
-  var weather = ` http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=${exclude}&APPID=${appId}&units=${units}`;
+  var weather = ` https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=${exclude}&APPID=${appId}&units=${units}`;
 
   fetch(weather)
     .then((result) => {
@@ -211,7 +211,7 @@ function showDailyWeather(resultFromServer) {
 
     var getWeather = day.weather[0].main;
     var getIcon =
-      "http://openweathermap.org/img/w/" + day.weather[0].icon + ".png";
+      "https://openweathermap.org/img/w/" + day.weather[0].icon + ".png";
     var getTemp = Math.floor(day.temp.day) + "&#176" + "C";
     var ul = document.querySelector("ul");
     var list = document.createElement("li");
