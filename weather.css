@@ -5,7 +5,6 @@
 
 body {
   width: 100vw;
-  height: 100vh;
   overflow-x: hidden;
   background: url("images/default.jpg");
   background-repeat: no-repeat;
@@ -161,9 +160,6 @@ header {
 
 #footer {
   grid-area: footer;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
   width: 100%;
   display: flex;
   text-align: center;
