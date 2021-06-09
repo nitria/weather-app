@@ -5,6 +5,7 @@
 
 body {
   width: 100vw;
+  height: 100vh;
   overflow-x: hidden;
   background: url("images/default.jpg");
   background-repeat: no-repeat;
@@ -13,7 +14,6 @@ body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: white;
-  text-shadow: 2px 2px 1px black;
 }
 
 main {
@@ -33,6 +33,35 @@ header {
   grid-area: header;
   height: 80px;
   padding: 2rem 1rem;
+}
+
+.alertboxContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.alertbox {
+  max-width: 400px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.5rem 0.8rem;
+}
+
+.alertbox p {
+  color: #000;
+}
+
+.alertbox button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
 }
 
 #clockDisplay {
@@ -193,5 +222,11 @@ header {
   .weekly {
     margin-top: 1rem;
     overflow-x: hidden;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .alertbox {
+    width: 90%;
   }
 }
